@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Prediction Results</h1>
+
+    <p><strong>Predicted Stress Level:</strong> {{ stress }}</p>
+    <p><strong>Predicted GPA:</strong> {{ gpa }}</p>
+    
+    <h2>Personalized Feedback</h2>
+    {% if gpa >= 3 and stress <= 4 %}
+        <p>Your GPA is excellent, and your stress levels are well-managed. Keep up the great work! Maintaining a balanced lifestyle with good sleep, physical activity, and time management will help you continue to succeed both academically and personally.</p>
+    {% elif gpa >= 3 and stress > 4 %}
+        <p>You have a high GPA, which is great! However, your stress levels are a bit high. To maintain your academic performance, it’s important to address your stress. Consider adopting better stress management strategies, such as relaxation exercises, better sleep routines, or reducing academic overload.</p>
+    {% elif gpa < 3 and stress <= 4 %}
+        <p>Your stress levels seem manageable, which is good. However, your GPA could improve. With the stress under control, try focusing more on your study habits, perhaps by seeking tutoring or improving time management to boost your academic performance.</p>
+    {% elif gpa < 3 and stress > 4 %}
+        <p>Both your GPA and stress levels indicate areas for improvement. High stress can negatively impact academic performance, so it’s crucial to address this first. Look into stress-reduction techniques such as physical activity, sleep optimization, or mindfulness practices. Once stress is under control, focus on improving your study habits and seeking help if needed.</p>
+    {% endif %}
+
+    <h2>Explanation of the Results</h2>
+    <p>The predicted stress level and GPA are derived using machine learning models trained on a dataset of student performance and health indicators. For stress prediction, the model analyzed the following seven features: gender, sleep duration, quality of sleep, physical activity level, heart rate, daily steps, and systolic blood pressure. For GPA prediction, the features considered were age, study time per week, absences, tutoring, parental support, extracurricular activities, and participation in sports.</p>
+    <p>Each of these features was standardized, and predictions were made using a Gradient Boosting Regressor for stress and a Linear Regression model for GPA. These algorithms attempt to find patterns in the relationships between the chosen features and the target outputs (stress level and GPA).</p>
+
+    <h2>Critical Assessment</h2>
+    <p>While the models give a reasonable approximation based on the selected features, there are limitations to this approach. The real world is far more complex, and by focusing on only seven features for each prediction, the model lacks depth. For instance, stress levels can be influenced by various additional factors such as mental health, social relationships, financial pressure, and academic workload, none of which are captured in this model. Similarly, GPA may be affected by factors like learning styles, classroom engagement, or even access to educational resources.</p>
+    <p>Moreover, the models assume a linear relationship between the input features and the predicted outcomes, which may oversimplify the reality. In particular, the use of a Linear Regression model for GPA might miss out on non-linear patterns that could improve prediction accuracy. A more complex or carefully chosen set of features could likely provide better results.</p>
+
+    <h2>Conclusion</h2>
+    <p>In conclusion, the predictions provided here are an initial approximation and should be interpreted with caution. While useful as a general guide, the model does not capture the full range of factors that contribute to stress and academic performance. Future iterations could benefit from incorporating more features, using advanced modeling techniques, and collecting richer data to improve the accuracy and reliability of the predictions. Despite its limitations, this model serves as a useful starting point for exploring the relationships between lifestyle factors and student outcomes.</p>
+
+    <!-- Navigation -->
+    <a href="/">Back to Home</a>
+</body>
+</html>

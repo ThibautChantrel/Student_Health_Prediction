@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Training</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Training models...</h1>
+    <p>This may take a few moments.</p>
+    <script>
+        setTimeout(() => {
+            window.location.href = "/form";  // Redirect to form when training is done
+        }, 10000);  // Wait for 10 seconds (you can adjust it based on training time)
+    </script>
+</body>
+</html>

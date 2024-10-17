@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Enter the Features to Predict Stress Level and GPA</h1>
+    <bodycenter>
+    <form action="/predict" method="POST">
+            <label>Gender (0=Male, 1=Female):</label><input type="text" name="gender"><br><br>
+            <label>Sleep Duration (hours):</label><input type="text" name="sleep_duration"><br><br>
+            <label>Quality of Sleep (1-10):</label><input type="text" name="quality_sleep"><br><br>
+            <label>Physical Activity Level (Minutes of physical activity per day):</label><input type="text" name="physical_activity"><br><br>
+            <label>Heart Rate (bpm):</label><input type="text" name="heart_rate"><br><br>
+            <label>Daily Steps:</label><input type="text" name="daily_steps"><br><br>
+            <label>Systolic Blood Pressure:</label><input type="text" name="systolic"><br><br>
+
+            <label>Age:</label><input type="text" name="age"><br><br>
+            <label>Study Time Weekly (hours):</label><input type="text" name="study_time_weekly"><br><br>
+            <label>Absences:(Number of absences during the school year)</label><input type="text" name="absences"><br><br>
+            <label>Tutoring (0=No, 1=Yes):</label><input type="text" name="tutoring"><br><br>
+            <label>Parental Support (0=No, 1=Yes):</label><input type="text" name="parental_support"><br><br>
+            <label>Extracurricular (0=No, 1=Yes):</label><input type="text" name="extracurricular"><br><br>
+            <label>Sports (0=No, 1=Yes):</label><input type="text" name="sports"><br><br>
+
+            <button type="submit">Predict</button>
+        </form>
+        <a href="/">Back to Home</a>
+    </bodycenter>
+</body>
+</html>
